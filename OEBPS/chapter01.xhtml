@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>Just a Simple ePub test</title>
+  </head>
+
+  <body>
+    <h1>Silly content for display</h1>
+    <p>
+      This is the first paragraph in an ePub digital book (i.e., an
+      electronic book, or e-book). This test is meant to be akin to a
+      programmer's "Hello, World!" application, but since we need the
+      content of the book to be at least moderately long, so that there are
+      reflows, I am trying to be verbose.
+    </p>
+
+    <p>
+      I expect that the line breakings of ebook readers
+      like <a href="http://www.fbreader.org/">FBReader</a> will be, in
+      particular, a little more beautiful than those presented by the
+      competition, since it uses a good hypenation algorithm (the same that
+      Prof. Knuth uses in his superb TeX engine?).
+    </p>
+
+    <h2>Brief description of an ePub archive</h2>
+    <p>
+      An ePub archive is composed of three parts:
+    </p>
+
+    <ul>
+      <li>
+	The "content", being constituted of a set of XHTML files (the "real"
+	content of the book), together with Cascading Style Sheets (being a
+	subset of the CSS 2.0 standard, with a few extra properties).
+      </li>
+      <li>
+	Accompanying the content per se, there is a description of the
+	structure of the book, in XML format. This description is made up of
+	a manifest file
+      </li>
+      <li>
+	The final step is just packing it up all in a ZIP file, and with
+	extension <code>.epub</code>. The files inside this container should
+	be in a hierarchy as given by:
+      </li>
+    </ul>
+  </body>
+</html>

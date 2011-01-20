@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package version="2.0" xmlns="http://www.idpf.org/2007/opf"
+	 unique-identifier="abcdef">
+
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/"
+	    xmlns:opf="http://www.idpf.org/2007/opf">
+
+    <dc:title>Title is Foo Barred</dc:title>
+    <dc:creator opf:role="aut">Rogério Brito</dc:creator>
+    <dc:language>en-US</dc:language>
+    <dc:identifier id="abcdef">abcdef</dc:identifier>
+
+  </metadata>
+
+  <manifest>
+    <item id="chapter01" href="chapter01.xhtml" media-type="application/xhtml+xml" />
+    <item id="ncx"       href="book.ncx"        media-type="application/x-dtbncx+xml" />
+  </manifest>
+
+  <spine toc="ncx">
+    <itemref idref="chapter01" />
+  </spine>
+</package>
