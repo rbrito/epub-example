@@ -47,5 +47,66 @@
 	be in a hierarchy as given by:
       </li>
     </ul>
+
+    <h2>A "Hello, World!" version of an ePub ebook.</h2>
+
+    <p>Some gotchas:</p>
+
+    <ul>
+      <li>
+	The directory strucure is not obvious at all and it appears to have
+	some variation from descriptions around the internet.
+      </li>
+      <li>
+	The <code>.epub</code> file is just a zip file that has:
+
+	<ol>
+	  <li>
+	    A certain directory strucure (see below)
+	  </li>
+	  <li>
+	    A requirement that the first file, <code>mimetype</code>, to be stored
+	    uncompressed, have exactly the contents <code>application/epub+zip</code>
+	    with no trailing CR, LF, NL etc., and have no special attributes
+	    or extra fields.
+	  </li>
+	  <li>
+	    The tree hierarchy looks approximately like this:
+
+	    <pre>
+         .
+         ├── mimetype
+         ├── META-INF
+         │   └── container.xml
+         └── OEBPS
+             ├── book.ncx
+             ├── book.opf
+             └── chapter01.xhtml
+	    </pre>
+	  </li>
+	</ol>
+      </li>
+      <li>
+	The file <code>container.xml</code> serves as a "bootstrap" for the
+	book.
+      </li>
+      <li>
+	The <code>.opf</code> file contains at a minimum, metadata of the
+	book, the list of all files (except
+	for <code>mimetype</code>, <code>container.xml</code>, and
+	the <code>.opf</code>) that compose the book, with their full path,
+	IDs and media-types, and, lastly, the "linear" list of topics in
+	which the book should be read.
+      </li>
+      <li>
+	The content of the <code>dc:identifier</code> element of
+	the <code>.opf</code> file has to match the property of
+	the <code>meta</code> element with
+	name <code>dtb:uid</code>. Otherwise,
+	<a href="http://www.threepress.org/document/epub-validate/">http://www.threepress.org/document/epub-validate/</a>
+	does not validate the document.
+      </li>
+    </ul>
+
   </body>
 </html>
