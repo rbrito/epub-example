@@ -1,0 +1,35 @@
+# A "Hello, World!" version of an ePub ebook.
+    
+Some gotchas:
+    
+* The directory strucure is not obvious at all and it appears to have some
+  variation from descriptions around the internet.
+    
+* The `.epub` file is just a zip file that has:
+    1. A certain directory strucure (see below)
+    2. A requirement that the first file, `mimetype`, to be stored
+       uncompressed, have exactly the contents `application/epub+zip` with
+       no trailing CR, LF, NL etc., and have no special attributes or extra
+       fields.
+    3. The tree hierarchy looks approximately like this:
+	
+            .
+            ├── mimetype
+            ├── META-INF
+            │   └── container.xml
+            └── OEBPS
+                ├── book.ncx
+                ├── book.opf
+                └── chapter01.xhtml
+    
+* The file `container.xml` serves as a "bootstrap" for the book.
+    
+* The `.opf` file contains at a minimum, metadata of the book, the list of
+  all files (except for `mimetype`, `container.xml`, and the `.opf`) that
+  compose the book, with their full path, IDs and media-types, and, lastly,
+  the "linear" list of topics in which the book should be read.
+    
+* The content of the `dc:identifier` element of the `.opf` file has to match
+  the property of the `meta` element with name `dtb:uid`.  Otherwise,
+  http://www.threepress.org/document/epub-validate/ does not validate the
+  document.
